@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Packing Slip</title>
+<style>
+@page { size: 8.5in 11in; margin: 0; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  width: 8.5in;
+  height: 11in;
+  position: relative;
+  font-family: "Times New Roman", Times, "Liberation Serif", "Tinos", serif;
+  font-size: 8.5pt;
+  color: #000;
+  background: #fff;
+}
+.a { position: absolute; }
+.ar { font-family: Arial, Helvetica, "Liberation Sans", "Arimo", sans-serif; }
+.bx {
+  position: absolute;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: none;
+}
+.bx.sit-bottom { border-bottom: none; }
+.hdr-line {
+  border-bottom: 1px solid #000;
+  height: .33in;
+  line-height: .33in;
+  padding-left: .15in;
+  font-size: 8pt;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: none;
+  position: absolute;
+  outline: none;
+  box-shadow: none;
+}
+td {
+  font-size: 8.5pt;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  box-shadow: none;
+  border: none;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+tr:first-child td { border-top: 1px solid #000; }
+td:first-child { border-left: 1px solid #000; }
+td.h {
+  font-family: Arial, Helvetica, "Liberation Sans", "Arimo", sans-serif;
+  font-size: 8pt;
+  height: .3in;
+}
+tr.sit-bottom td { border-bottom: none; }
+body.sample::before {
+  content: "SAMPLE";
+  position: absolute;
+  top: 3.6in;
+  left: 0.3in;
+  width: 7.9in;
+  text-align: center;
+  font-size: 90pt;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: rgba(180, 0, 0, 0.12);
+  transform: rotate(-28deg);
+  z-index: 10;
+  pointer-events: none;
+  letter-spacing: 0.08em;
+}
+</style>
+</head>
+<body class="{{SAMPLE_CLASS}}">
+
+<img class="a" src="{{LOGO_SRC}}" alt="Teasdale Cutting Tools logo" style="left:.45in;top:.38in;height:.9in;width:auto">
+
+<div class="a ar" style="left:1.7in;top:.48in;line-height:1.45;font-size:10pt">
+  <span style="font-size:12pt;color:#0d1f5c;font-family:Tahoma,Arial,Helvetica,sans-serif">Teasdale Cutting Tools Ltd.</span><br>
+  teasdalecuttingtools.com<br>
+  <span style="font-size:8.5pt">Phone 416 7498884</span><br>
+  <span style="font-size:8.5pt">Chris@Teasdale.com</span>
+</div>
+
+<div class="a ar" style="right:.6in;top:.5in;font-size:20pt;font-weight:bold;width:2.5in;text-align:right">PACKING SLIP</div>
+
+<table style="left:6.12in;top:.93in;width:1.88in">
+  <tr><td class="h">Date</td><td class="h">P.O. #</td></tr>
+  <tr><td style="height:.32in">{{DATE}}</td><td>{{PO_NUMBER}}</td></tr>
+</table>
+
+<div class="bx sit-bottom" style="left:.56in;top:2.25in;width:2.7in;height:1.0in">
+  <div class="ar hdr-line">Ship To</div>
+  <div style="padding:.03in .08in;line-height:1.15">{{SHIP_TO}}</div>
+</div>
+
+<table style="left:3.5in;top:2.62in;width:4.56in">
+  <tr>
+    <td class="h" style="width:2.25in">Slip #</td>
+    <td class="h">Ship Via</td>
+  </tr>
+  <tr class="sit-bottom">
+    <td style="height:.33in">{{SLIP_NUMBER}}</td>
+    <td>{{SHIP_VIA}}</td>
+  </tr>
+</table>
+
+<table style="left:.56in;top:3.25in;width:7.5in">
+  <tr>
+    <td class="h" style="width:6.5in">Description</td>
+    <td class="h" style="width:1in">Qty</td>
+  </tr>
+  <tr style="vertical-align:top">
+    <td style="text-align:left;height:5.25in;padding:.08in;font-weight:bold">{{DESCRIPTION}}</td>
+    <td style="text-align:right;padding:.08in;vertical-align:top">{{QTY}}</td>
+  </tr>
+</table>
+
+<div class="a ar" style="left:.56in;top:8.95in;width:7.5in;font-size:8pt;min-height:.28in">
+  <span style="font-weight:bold">Notes</span>
+  <span style="margin-left:.15in">{{NOTES}}</span>
+</div>
+
+<div class="a ar" style="left:.56in;top:9.55in;width:3.4in;border-top:1px solid #000;padding-top:3px;font-size:8pt">Received by</div>
+<div class="a ar" style="left:4.15in;top:9.55in;width:1.85in;border-top:1px solid #000;padding-top:3px;font-size:8pt">Date received</div>
+<div class="bx" style="left:6.2in;top:9.22in;width:.95in;height:.45in"></div>
+<div class="a ar" style="left:6.2in;top:9.70in;width:.95in;text-align:center;font-size:8pt">Initials</div>
+
+<div class="a" style="left:.72in;top:10.32in;font-size:8.5pt">
+  <span class="ar">GST/HST No.</span><span style="margin-left:.8in">867457558</span>
+</div>
+
+</body>
+</html>
